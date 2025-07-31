@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://be-working.com
+
+# Sitemaps
+Sitemap: https://be-working.com/sitemap.xml
