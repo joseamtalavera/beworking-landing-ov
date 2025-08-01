@@ -51,16 +51,20 @@ export default function Home() {
       <MainSection sx={{ pt: { xs: 4, sm: 4 }, mt: -6 }}>
         <StartContent maxWidth="md" sx={{ pt: { xs:8, sm:10, md:10 }, ml: 4 }}>
           <Typography variant="h1" component="h1" gutterBottom sx={{ textAlign: 'left' }}>
-            Your Virtual Office for <span style={{ fontWeight: 'bold' }}>15 €/month</span>
+            Tu Oficina Virtual por <span style={{ fontWeight: 'bold' }}>15 €/mes</span>
           </Typography>
           <Typography variant="h3" gutterBottom sx={{ textAlign: 'left' }}>
-            Virtual Office Plaftorm copiloted by AI agents.<br />
-            <span style={{ fontWeight: 400, fontSize: '2rem', color: 'white', textAlign: 'left', display: 'block' }}>
-              Focus on your business — we’ll handle the rest.
-            </span>
+             Concéntrate en tu negocio — nosotros nos encargamos del resto.<br />
+            {/* <span style={{ fontWeight: 400, fontSize: '2rem', color: 'white', textAlign: 'left', display: 'block' }}>
+              Concéntrate en tu negocio — nosotros nos encargamos del resto.
+            </span> */}
           </Typography>
-          <Box sx={{ maxWidth: 480, width: '100%', mx: 'auto' }}>
-            <GreenButton label="Request your virtual office" />
+          {/* <Box sx={{ maxWidth: 480, width: '100%', mx: 'auto', mb: 4 }}>
+            <GreenButton label="Solicita tu oficina virtual" />
+          </Box> */}
+          {/* Contact Form moved here */}
+          <Box sx={{ maxWidth: 600, width: '100%', ml: 0, mr: 'auto' }}>
+            <ModernContactSection transparent />
           </Box>
         </StartContent>
       </MainSection>
@@ -68,36 +72,36 @@ export default function Home() {
       {/* Pilares section */}
       <SectionBox>
         <Typography variant="h5" align="center" sx={{ mb: 3, fontWeight: 400, mt: 12, color: '#009624' }}>
-          Our Benefits
+        Nuestros Beneficios
         </Typography>
         <Typography variant="h2" align="center" sx={{ mb: 3, fontWeight: 400, mt: 3 }}>
-          Our Formula: 5 Pillars of BeWorking
+        Oficina Virtual BeWorking
         </Typography>
         <Typography variant="h5" align="center" sx={{ mb: 16, maxWidth: 900, mx: 'auto', color: 'text.secondary' }}>
-          Discover our Virtual Office model, which is based on 5 fundamental pillars that offer you much more than just an address. 
-          Get to know them all and take your business to the next level!
+        Descubre nuestro modelo de Oficina Virtual, basado en 5 pilares fundamentales que te ofrecen mucho más que una simple dirección. 
+          ¡Conócelos todos y lleva tu negocio al siguiente nivel!
         </Typography>
 
         <PilarSection
-          title="Legal and Fiscal Address"
+          title="Domicilio Legal y Fiscal"
           image="/pilar1.2final.png"
-          description="We offer you a legal and fiscal address in multiple locations."
+          description="Te ofrecemos un domicilio legal y fiscal en múltiples ubicaciones."
           benefits={[
-            'Comply with legal and tax requirements.',
-            <>Visible location on <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Google Maps</Box>. Keep your privacy without using your personal address.</>,
+            'Cumple con los requisitos legales y fiscales.',
+            <>Ubicación visible en <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Google Maps</Box>. Mantén tu privacidad sin usar tu dirección personal.</>,
           ]}
         />
 
         <Box sx={{ bgcolor: '#f9f9f9' }}>
           <Box sx={{ height: { xs: 120, md: 200 } }} />
           <PilarSection
-            title="Parcel and Mail Reception"
+            title="Recepción de Paquetería y Correspondencia"
             image="/pilar2final.png"
-            description="Your mail always attended: we receive your mail and packages."
+            description="Tu correspondencia siempre atendida: recibimos tu correo y paquetes."
             benefits={[
-              <>As soon as we receive your mail, we notify you by email or <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>WhatsApp</Box>.</>,
-              <>Free letter scanning and archiving in the <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>SuperApp</Box>.</>,
-              'Package pickup during extended hours.',
+              <>En cuanto recibimos tu correspondencia, te avisamos por email o <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>WhatsApp</Box>.</>,
+              <>Escaneo gratuito de cartas y archivo en la <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>SuperApp</Box>.</>,
+              'Recogida de paquetes en horario ampliado.',
             ]}
             reverse
           />
@@ -106,27 +110,27 @@ export default function Home() {
         <Box sx={{ height: { xs: 120, md: 200 } }} />
 
         <PilarSection
-          title="Access our BeSpaces physical network"
+          title="Acceso a la red física BeSpaces"
           image="/pilar3final.png"
-          description="Use our network of workspaces for free."
+          description="Utiliza nuestra red de espacios de trabajo sin coste adicional."
           benefits={[
-            <>We not only offer you the virtual service, but also the <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Physical Office</Box> and <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Meeting Room</Box> when you need them.</>,
-            'All these spaces belong to BeWorking.',
-            'Take advantage and connect with entrepreneurs and freelancers.',
+            <>No solo te ofrecemos el servicio virtual, sino también la <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Oficina Física</Box> y <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Sala de Reuniones</Box> cuando las necesites.</>,
+            'Todos estos espacios pertenecen a BeWorking.',
+            'Aprovecha y conecta con emprendedores y freelancers.',
           ]}
         />
 
         <Box sx={{ bgcolor: '#f9f9f9' }}>
           <Box sx={{ height: { xs: 120, md: 200 } }} />
           <PilarSection
-            title="Free use of the SuperApp"
+            title="Uso gratuito de la SuperApp"
             image="/pilar4.1final.png"
-            description="All business management tools included in your Virtual Office plan."
+            description="Todas las herramientas de gestión empresarial incluidas en tu plan de Oficina Virtual."
             benefits={[
-              <>Contacts, <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>MailBox</Box> where we archive all your mail, Accounting, Chat to connect with other Beworkers.</>,
-              <>You also have a <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Free Booking</Box> engine to use our spaces.</>,
-              <>And the possibility to create custom modules and use the entire <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Partner Network</Box> of BeWorking services.</>,
-              'Access available from any device.',
+              <>Contactos, <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>MailBox</Box> donde archivamos toda tu correspondencia, Contabilidad, Chat para conectar con otros Beworkers.</>,
+              <>También tienes un motor de <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Reservas Gratuito</Box> para usar nuestros espacios.</>,
+              <>Y la posibilidad de crear módulos personalizados y usar toda la <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Red de Partners</Box> de servicios BeWorking.</>,
+              'Acceso disponible desde cualquier dispositivo.',
             ]}
             reverse
           />
@@ -135,17 +139,17 @@ export default function Home() {
         <Box sx={{ height: { xs: 120, md: 200 } }} />
 
         <PilarSection
-          title="Monthly Events and Networking"
+          title="Eventos Mensuales y Networking"
           image="/pilar5final.png"
-          description="Participate in meetings, workshops, and business coffees."
+          description="Participa en reuniones, talleres y cafés empresariales."
           benefits={[
-            <>Every month, BeSpaces managers will organize <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>In-person Events</Box>.</>,
-            'This way you can meet other Beworkers and create synergies.',
-            <>Be part of an <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>active and growing Community</Box>.</>,
+            <>Cada mes, los gestores de BeSpaces organizarán <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Eventos Presenciales</Box>.</>,
+            'Así podrás conocer a otros Beworkers y crear sinergias.',
+            <>Forma parte de una <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Comunidad activa y en crecimiento</Box>.</>,
           ]}
         />
         <Box sx={{ mt: 4, textAlign: 'center' }}>
-          <GreenButton label="Request your virtual office" />
+          <GreenButton label="Solicita tu oficina virtual" />
         </Box>
       </SectionBox>
 
@@ -157,14 +161,14 @@ export default function Home() {
             gutterBottom
             sx={{ mb: 3, fontWeight: 400, mt: 3, color: 'white' }}
             >
-            Pricing
+            Precios
           </Typography>
           <Typography 
             variant="h5"
             align="center"
             sx={{ mb: 16, maxWidth: 900, mx: 'auto', color: 'white' }}
           >
-            <Box component="span" sx={{ fontWeight: 'bold' }}>Join</Box> BeWorking and transform the way you do business. Take the leap into the future and boost your company. Let your success start today!
+            <Box component="span" sx={{ fontWeight: 'bold' }}>Únete</Box> a BeWorking y transforma la forma en que haces negocios. Da el salto al futuro y potencia tu empresa. ¡Deja que tu éxito comience hoy!
           </Typography>
           {/* Pricing Card injected here */}
           <PricingCard />
@@ -175,7 +179,7 @@ export default function Home() {
       <GallerySection />
 
       {/* Google Reviews Carousel */}
-      <Box sx={{ py: 12 }}>
+      {/* <Box sx={{ py: 12 }}>
         <Container>
           <Typography variant="h2" align="center" gutterBottom sx={{ mb: 3, fontWeight: 400, mt: 3 }}>
             Google Reviews
@@ -187,10 +191,10 @@ export default function Home() {
         </Container>
       </Box>
 
-      <Divider sx={{ my: 4, borderColor: 'rgba(87, 84, 84, 0.3)', opacity: 1, borderBottomWidth: '0.5px' }} />
+      <Divider sx={{ my: 4, borderColor: 'rgba(87, 84, 84, 0.3)', opacity: 1, borderBottomWidth: '0.5px' }} /> */}
 
       {/* Location Map Placeholder */}
-      <Box sx={{ py: 4, textAlign: 'center' }}>
+      {/* <Box sx={{ py: 4, textAlign: 'center' }}>
         <Container>
           <Typography variant="h2" gutterBottom sx={{ mb: 3, fontWeight: 400, mt: 1 }}>
             BeSpaces Location
@@ -220,29 +224,29 @@ export default function Home() {
                   zoomControl: true,
                 }}
               >
-                <Marker position={{ lat: 36.7213, lng: -4.4214 }} icon={orangePin} /> {/* Malaga */}
-                <Marker position={{ lat: 37.3886, lng: -5.9823 }} icon={orangePin} /> {/* Sevilla */}
-                <Marker position={{ lat: 39.4699, lng: -0.3763 }} icon={orangePin} /> {/* Valencia */}
-                <Marker position={{ lat: 41.6488, lng: -0.8891 }} icon={orangePin} /> {/* Zaragoza */}
-                <Marker position={{ lat: 43.2630, lng: -2.9350 }} icon={orangePin} /> {/* Bilbao */}
-                <Marker position={{ lat: 42.2406, lng: -8.7207 }} icon={orangePin} /> {/* Vigo */}
-                <Marker position={{ lat: 39.5696, lng: 2.6502 }} icon={orangePin} /> {/* Palma de Mallorca */}
-                <Marker position={{ lat: 28.1235, lng: -15.4363 }} icon={orangePin} /> {/* Las Palmas de Gran Canaria */}
-                <Marker position={{ lat: 41.3851, lng: 2.1734 }} icon={orangePin} /> {/* Barcelona */}
-                <Marker position={{ lat: 40.4168, lng: -3.7038 }} icon={orangePin} /> {/* Madrid */}
-              </GoogleMap>
+                {/*<Marker position={{ lat: 36.7213, lng: -4.4214 }} icon={orangePin} /> {/* Malaga */}
+                {/* <Marker position={{ lat: 37.3886, lng: -5.9823 }} icon={orangePin} /> {/* Sevilla */}
+                {/*<Marker position={{ lat: 39.4699, lng: -0.3763 }} icon={orangePin} /> {/* Valencia */}
+                {/*<Marker position={{ lat: 41.6488, lng: -0.8891 }} icon={orangePin} /> {/* Zaragoza */}
+                {/*<Marker position={{ lat: 43.2630, lng: -2.9350 }} icon={orangePin} /> {/* Bilbao */}
+                {/*<Marker position={{ lat: 42.2406, lng: -8.7207 }} icon={orangePin} /> {/* Vigo */}
+                {/*<Marker position={{ lat: 39.5696, lng: 2.6502 }} icon={orangePin} /> {/* Palma de Mallorca */}
+                {/*<Marker position={{ lat: 28.1235, lng: -15.4363 }} icon={orangePin} /> {/* Las Palmas de Gran Canaria */}
+                {/*<Marker position={{ lat: 41.3851, lng: 2.1734 }} icon={orangePin} /> {/* Barcelona */}
+                {/*<Marker position={{ lat: 40.4168, lng: -3.7038 }} icon={orangePin} /> {/* Madrid */}
+              {/* </GoogleMap>
             </LoadScript>
           </Box>
           <Box sx={{ mt: 4, textAlign: 'center' }}>
           <GreenButton label="Select your BeSpace" />
         </Box>
         </Container>
-      </Box>
+      </Box>  */}
 
-      <Divider sx={{ my: 4, borderColor: 'rgba(87, 84, 84, 0.3))', opacity: 1, borderBottomWidth: '0.5px' }} />
+      {/* <Divider sx={{ my: 4, borderColor: 'rgba(87, 84, 84, 0.3))', opacity: 1, borderBottomWidth: '0.5px' }} /> */}
 
       {/* Interviews Section */}
-      <Box sx={{ py: 4, textAlign: 'center', bgcolor: '#fff' }}>
+      {/* <Box sx={{ py: 4, textAlign: 'center', bgcolor: '#fff' }}>
         <Container>
           <Typography variant="h2" align="center" sx={{ mb: 3, fontWeight: 400, mt: 3 }}>
             Interviews with our Coworkers
@@ -250,9 +254,9 @@ export default function Home() {
           <Typography variant="h5" align="center" sx={{ mb: 6, maxWidth: 900, mx: 'auto', color: 'text.secondary' }}>
             Discover the stories and experiences of the professionals who are part of the BeWorking community.
           </Typography>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 4 }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 4 }}>*/}
             {/* Example interview cards, replace with real data/images as needed */}
-            <Box sx={{ width: 280, textAlign: 'center', bgcolor: '#fafafa', borderRadius: 3, boxShadow: 2, p: 3 }}>
+            {/* <Box sx={{ width: 280, textAlign: 'center', bgcolor: '#fafafa', borderRadius: 3, boxShadow: 2, p: 3 }}>
               <Image src="/avatars/marta.jpg" alt="Marta García - Digital Marketing" width={120} height={120} style={{ borderRadius: '50%', objectFit: 'cover', marginBottom: 16 }} />
               <Typography variant="h6" sx={{ mb: 1 }}>Marta García</Typography>
               <Typography variant="subtitle2" sx={{ mb: 1, color: '#FFA500' }}>Digital Marketing</Typography>
@@ -283,16 +287,13 @@ export default function Home() {
               <Typography variant="body2" color="text.secondary">
                 The networking and monthly events have helped me expand my network and get new clients.
               </Typography>
-            </Box>
+            </Box> */}
             {/* Add more interview cards as needed */}
-          </Box>
+          {/*</Box>
         </Container>
-      </Box>
+      </Box> */}
 
-      {/* Call to Action Section */}
-      <Box sx={{ py: 4, textAlign: 'center', bgcolor: '#f9f9f9' }}>
-        <ModernContactSection />
-      </Box>
+      {/* Call to Action Section removed (form now in main section) */}
 
       {/* Floating WhatsApp Button */}
       <Box

@@ -35,14 +35,11 @@ export default function Layout({ children }) {
                 </Typography>
               </NextLink>
             </Box>
-            <MenuBox>
+            {/* <MenuBox>
               <MenuButton>Cowork</MenuButton>
               <MenuButton>Meeting Rooms</MenuButton>
               <MenuButton>BeCopilot</MenuButton>
               <MenuButton>Community</MenuButton>
-              {/* <NextLink href="/main/login" passHref>
-                <MenuButton>Login</MenuButton>
-              </NextLink> */}
               <Button
                 href="/main/login"
                 //variant="outlined"
@@ -66,14 +63,15 @@ export default function Layout({ children }) {
                 }}
               >
                 Login | Register
-              </Button>
+              </Button>*/}
               {/* Language Switcher */}
-              <Box sx={{ display: 'flex', alignItems: 'center', ml: 2, gap: 1 }}>
-                <Button
-                  variant="text"
-                  sx={{ minWidth: 0, px: 1, fontWeight: 700, color: '#222', textDecoration: 'underline', textTransform: 'none' }}
-                  // onClick={() => handleLanguageChange('en')}
-                >
+            {/* </HeaderToolbar> */}
+            {/*<Box sx={{ display: 'flex', alignItems: 'center', ml: 2, gap: 1 }}>
+              <Button
+                variant="text"
+                sx={{ minWidth: 0, px: 1, fontWeight: 700, color: '#222', textDecoration: 'underline', textTransform: 'none' }}
+                // onClick={() => handleLanguageChange('en')}
+              >
                   EN
                 </Button>
                 <Typography variant="body2" sx={{ color: '#222', fontWeight: 700 }}>|</Typography>
@@ -85,7 +83,7 @@ export default function Layout({ children }) {
                   ES
                 </Button>
               </Box>
-            </MenuBox>
+            </MenuBox> */}
           </HeaderToolbar>
         </Container>
       </AppBar>
