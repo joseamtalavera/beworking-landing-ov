@@ -12,7 +12,6 @@ import {
   PricingBanner, 
 } from '../src/styles/indexStyles';
 import { PricingCard } from '../src/components/home/PricingCard';
-import { GoogleReviewsCarousel } from '../src/components/home/GoogleReviewsCarousel';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import PilarSection from '../src/components/home/PilarSection';
 import GreenButton from '../src/components/home/GreenButton';
@@ -187,7 +186,7 @@ export default function Home() {
           <Typography variant="h5" align="center" sx={{ mb: 6, maxWidth: 900, mx: 'auto', color: 'text.secondary' }}>
             Discover what our clients think and how BeWorking has boosted their businesses. Your experience could be the next success story!
           </Typography>
-          <GoogleReviewsCarousel />
+// ...existing code...
         </Container>
       </Box>
 
