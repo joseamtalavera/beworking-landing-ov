@@ -25,7 +25,7 @@ export default function Layout({ children }) {
   return (
     <>
       {/* Header */}
-      <AppBar position="fixed" color="default" elevation={0} sx={{ top: 0, zIndex: 1201, bgcolor: '#fff', boxShadow: 1 }}>
+      <AppBar position="fixed" color="default" elevation={0} sx={{ top: 0, zIndex: 1201, bgcolor: '#fff', boxShadow: 'none', borderBottom: 'none' }}>
         <Container disableGutters maxWidth={false} sx={{ pl: 5, pr: 5 }}>
           <HeaderToolbar disableGutters sx={{ display: 'flex', alignItems: 'center', pl: 0, pr: 0 }}>
             <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', pl: 0, ml: 0 }}>

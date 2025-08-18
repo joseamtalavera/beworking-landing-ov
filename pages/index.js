@@ -70,7 +70,7 @@ export default function Home() {
 
       {/* Pilares section */}
       <SectionBox>
-        <Typography variant="h5" align="center" sx={{ mb: 3, fontWeight: 400, mt: 12, color: '#009624' }}>
+        <Typography variant="h4" align="center" sx={{ mb: 3, fontWeight: 400, mt: 12, color: '#009624' }}>
         Nuestros Beneficios
         </Typography>
         <Typography variant="h2" align="center" sx={{ mb: 3, fontWeight: 400, mt: 3 }}>
