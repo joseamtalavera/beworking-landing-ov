@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Box, Typography, TextField, Paper, List, ListItem, InputAdornment, Snackbar, Alert } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import GreenLoadingButton from './GreenLoadingButton';
 import PersonOutlineOutlined from '@mui/icons-material/PersonOutlineOutlined';
 import EmailOutlined from '@mui/icons-material/EmailOutlined';
 import PhoneOutlined from '@mui/icons-material/PhoneOutlined';
@@ -127,7 +127,6 @@ export default function ModernContactSection({ transparent = false }) {
         setSnackbar({ open: true, message: msg, severity: 'error' });
       }
     } catch (err) {
-        // Log any errors
         console.error('Error submitting lead:', err);
       setSnackbar({ open: true, message: err?.message || 'Hubo un error. Inténtalo de nuevo más tarde.', severity: 'error' });
     } finally {
@@ -243,16 +242,11 @@ export default function ModernContactSection({ transparent = false }) {
           sx={{ mb: 2, background: '#fff', borderRadius: 1 }}
         />
 
-        <LoadingButton
-          type="submit"
-          variant="contained"
+        <GreenLoadingButton
+          label="SOLICITA TU OFICINA VIRTUAL"
           loading={loading}
-          loadingPosition="center"
-          sx={{ mt: 2, mb: 1, textTransform: 'none', fontWeight: 600, backgroundColor: '#2e7d32', '&:hover': { backgroundColor: '#1b5e20' } }}
-          fullWidth
-        >
-          Solicitar información
-        </LoadingButton>
+          sx={{ fontSize: '1rem' }}
+        />
       </Box>
 
       <Typography variant="caption" sx={{ display: 'block', mt: 1, color: '#666' }}>
