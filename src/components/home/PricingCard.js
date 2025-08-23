@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ModernContactSection from './ModernContactSection';
 import {
   Card,
   CardContent,
@@ -9,6 +10,8 @@ import {
   ListItemIcon,
   ListItemText,
   useTheme,
+  Dialog,
+  DialogContent,
 } from '@mui/material'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle'
 import MailOutlineIcon from '@mui/icons-material/MailOutline'
@@ -23,6 +26,7 @@ import GreenButton from './GreenButton'
 
 export function PricingCard() {
   const theme = useTheme()
+  const [openContact, setOpenContact] = useState(false);
 
   const features = [
     { icon: AccountBalanceIcon, text: 'Domiciliación fiscal y legal' },
@@ -100,7 +104,18 @@ export function PricingCard() {
           /> */}
 
           {/* CTA Button */}
-          <GreenButton />
+          <GreenButton label="Solicita tu oficina virtual" onClick={() => {
+            setOpenContact(true);
+            setTimeout(() => {
+              setOpenContact(false);
+            }, 3000);
+          }} />
+          {/* Contact Popup Dialog */}
+          <Dialog open={openContact} onClose={() => setOpenContact(false)} maxWidth="sm" fullWidth>
+            <DialogContent sx={{ p: 4 }}>
+              <ModernContactSection transparent onClose={() => setOpenContact(false)} />
+            </DialogContent>
+          </Dialog>
         </CardContent>
       </Card>
     </Box>

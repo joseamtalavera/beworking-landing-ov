@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Typography,
   Box,
@@ -15,6 +15,8 @@ import { PricingCard } from '../src/components/home/PricingCard';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import PilarSection from '../src/components/home/PilarSection';
 import GreenButton from '../src/components/home/GreenButton';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
 import GallerySection from '../src/components/home/GallerySection';
 import Image from 'next/image';
 import ModernContactSection from '../src/components/home/ModernContactSection';
@@ -24,7 +26,18 @@ import Seo from '../src/components/Seo';
 import StructuredData from '../src/components/StructuredData';
 import orgData from '../src/components/structuredData/orgData';
 
+
 export default function Home() {
+  const [openContact, setOpenContact] = useState(false);
+
+  const handleOpenContact = () => {
+    setOpenContact(true);
+    setTimeout(() => {
+      setOpenContact(false);
+    }, 3000);
+  };
+
+  const handleCloseContact = () => setOpenContact(false);
 
   return (
     <Layout>
@@ -137,8 +150,15 @@ export default function Home() {
           ]}
         />
         <Box sx={{ mt: 4, textAlign: 'center' }}>
-          <GreenButton label="Solicita tu oficina virtual" />
+          <GreenButton label="Solicita tu oficina virtual" onClick={handleOpenContact} />
         </Box>
+
+        {/* Contact Popup Dialog */}
+        <Dialog open={openContact} onClose={handleCloseContact} maxWidth="sm" fullWidth>
+          <DialogContent sx={{ p: 4 }}>
+            <ModernContactSection transparent onClose={handleCloseContact} />
+          </DialogContent>
+        </Dialog>
       </SectionBox>
 
       {/* Pricing Banner */}
