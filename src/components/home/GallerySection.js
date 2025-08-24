@@ -5,39 +5,47 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import GreenButton from './GreenButton';
 
 const images = [
-  '/_MG_1510.jpg',
-  '/_MG_1521.jpg',
-  '/_MG_1541.jpg',
-  '/DSC_2247 (Mediano).jpg',
-  '/DSC_2260 (Mediano).jpg',
-  '/DSC_2281 (Mediano).jpg',
-  '/DSC_2281.jpg',
-  '/DSC_2298.jpg',
-  '/DSC_2312 (Mediano).jpg',
-  '/DSC_2660.jpg',
-  '/DSC_2665.jpg',
-  '/DSC_2673.jpg',
-  '/DSC_2677.jpg',
-  '/DSC_2684.jpg',
-  '/DSC_2689.jpg',
-  '/DSC_2691.jpg',
-  '/DSC_2697.jpg'
+  '/_MG_1510_optimized.webp',
+  '/_MG_1521_optimized.webp',
+  '/_MG_1541_optimized.webp',
+  '/DSC_2247 (Mediano)_optimized.webp',
+  '/DSC_2260 (Mediano)_optimized.webp',
+  '/DSC_2281 (Mediano)_optimized.webp',
+  '/DSC_2281_optimized.webp',
+  '/DSC_2298_optimized.webp',
+  '/DSC_2312 (Mediano)_optimized.webp',
+  '/DSC_2660_optimized.webp',
+  '/DSC_2665_optimized.webp',
+  '/DSC_2673_optimized.webp',
+  '/DSC_2677_optimized.webp',
+  '/DSC_2684_optimized.webp',
+  '/DSC_2689_optimized.webp',
+  '/DSC_2691_optimized.webp',
+  '/DSC_2697_optimized.webp'
 ];
 
 export default function GallerySection() {
-  const [currentIndex, setCurrentIndex] = useState(null); // Start as null
+  const [currentIndex, setCurrentIndex] = useState(0); // Start at first image
   const [open, setOpen] = useState(false);
+  const [modalIndex, setModalIndex] = useState(null); // For modal image
+  const imagesPerPage = 4;
 
+  // For modal navigation (single image)
   const handleNext = () => {
-    if (currentIndex !== null) {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }
+    setModalIndex((prevIndex) => (prevIndex + 1) % images.length);
   };
 
   const handlePrev = () => {
-    if (currentIndex !== null) {
-      setCurrentIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
-    }
+    setModalIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
+  // For gallery navigation (set of images)
+  const handleGalleryNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + imagesPerPage) % images.length);
+  };
+
+  const handleGalleryPrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - imagesPerPage + images.length) % images.length);
   };
 
   const handleOpen = () => {
@@ -49,8 +57,8 @@ export default function GallerySection() {
   };
 
   const visibleImages = [
-    ...images.slice(currentIndex, currentIndex + 4),
-    ...images.slice(0, Math.max(0, currentIndex + 4 - images.length)),
+    ...images.slice(currentIndex, currentIndex + imagesPerPage),
+    ...images.slice(0, Math.max(0, currentIndex + imagesPerPage - images.length)),
   ];
 
   return (
@@ -63,33 +71,37 @@ export default function GallerySection() {
       </Typography>
 
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', py: 4 }}>
-        <IconButton onClick={handlePrev} sx={{ position: 'absolute', left: 16, zIndex: 2, color: '#009624', fontSize: '2rem' }}>
+        <IconButton onClick={handleGalleryPrev} sx={{ position: 'absolute', left: 16, zIndex: 2, color: '#009624', fontSize: '2rem' }}>
           <ArrowBackIosIcon fontSize="inherit" />
         </IconButton>
 
         <Box
           sx={{ display: 'flex', gap: 2, transition: 'transform 0.3s ease-in-out', justifyContent: 'center', alignItems: 'center' }}
         >
-          {visibleImages.map((src, index) => (
-            <Box
-              key={index}
-              component="img"
-              src={src}
-              alt={`Gallery image ${index + 1}`}
-              onClick={() => setCurrentIndex(index)}
-              sx={{
-                width: '20%',
-                height: 'auto',
-                borderRadius: 2,
-                boxShadow: 2,
-                flexShrink: 0,
-                cursor: 'pointer',
-              }}
-            />
-          ))}
+          {visibleImages.map((src, index) => {
+            // Calculate the global index for the image
+            const globalIndex = (currentIndex + index) % images.length;
+            return (
+              <Box
+                key={index}
+                component="img"
+                src={src}
+                alt={`Gallery image ${globalIndex + 1}`}
+                onClick={() => { setModalIndex(globalIndex); }}
+                sx={{
+                  width: '20%',
+                  height: 'auto',
+                  borderRadius: 2,
+                  boxShadow: 2,
+                  flexShrink: 0,
+                  cursor: 'pointer',
+                }}
+              />
+            );
+          })}
         </Box>
 
-        <IconButton onClick={handleNext} sx={{ position: 'absolute', right: 16, zIndex: 2, color: '#009624', fontSize: '2rem' }}>
+        <IconButton onClick={handleGalleryNext} sx={{ position: 'absolute', right: 16, zIndex: 2, color: '#009624', fontSize: '2rem' }}>
           <ArrowForwardIosIcon fontSize="inherit" />
         </IconButton>
       </Box>
@@ -111,7 +123,7 @@ export default function GallerySection() {
                     component="img"
                     src={src}
                     alt={`Gallery image ${index + 1}`}
-                    onClick={() => setCurrentIndex(index)}
+                    onClick={() => setModalIndex(index)}
                     sx={{
                       width: '100%',
                       height: 160,
@@ -134,7 +146,7 @@ export default function GallerySection() {
         </Dialog>
       </Box>
 
-      {currentIndex !== null && (
+      {modalIndex !== null && (
         <Box sx={{
           position: 'fixed',
           top: 0,
@@ -149,15 +161,15 @@ export default function GallerySection() {
           flexDirection: 'column',
         }}>
           <IconButton
-            onClick={() => setCurrentIndex(null)}
+            onClick={() => setModalIndex(null)}
             sx={{ position: 'absolute', top: 24, right: 24, color: 'white', zIndex: 2 }}
           >
             ✕
           </IconButton>
           <Box
             component="img"
-            src={images[currentIndex]}
-            alt={`Gallery image ${currentIndex + 1}`}
+            src={images[modalIndex]}
+            alt={`Gallery image ${modalIndex + 1}`}
             sx={{
               maxWidth: '90vw',
               maxHeight: '80vh',

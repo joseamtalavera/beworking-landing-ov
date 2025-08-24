@@ -91,8 +91,8 @@ export default function Layout({ children }) {
       <Box sx={{ pt: 14 }}>{children}</Box>
       {/* Footer */}
       <Box component="footer" sx={{ mt: 4, py: 4, bgcolor: '#009624', color: '#fff' }}>
-        <Container sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', gap: 6 }}>
-          {/* BeWorking Column */}
+        {/* <Container sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', gap: 6 }}>
+          
           <Box sx={{ flex: 1 }}>
             <Typography variant="h6" sx={{ mb: 2 }}>BeWorking</Typography>
             <Link href="/main/index" color="inherit" sx={{ display: 'block', mb: 1, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Inicio</Link>
@@ -102,7 +102,7 @@ export default function Layout({ children }) {
             <Link href="/main/index#precios" color="inherit" sx={{ display: 'block', mb: 1, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Precios</Link>
             <Link href="/main/index#beSpaces" color="inherit" sx={{ display: 'block', mb: 1, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Blog</Link>
           </Box>
-          {/* BeSpaces Column */}
+          
           <Box sx={{ flex: 1 }}>
             <Typography variant="h6" sx={{ mb: 2 }}>BeSpaces</Typography>
             <Link href="#" color="inherit" sx={{ display: 'block', mb: 1, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Madrid</Link>
@@ -116,7 +116,7 @@ export default function Layout({ children }) {
             <Link href="#" color="inherit" sx={{ display: 'block', mb: 1, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Las Palmas de Gran Canaria</Link>
             <Link href="#" color="inherit" sx={{ display: 'block', mb: 1, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Málaga</Link>
           </Box>
-          {/* Support Column */}
+          
           <Box sx={{ flex: 1 }}>
             <Typography variant="h6" sx={{ mb: 2 }}>Soporte</Typography>
             <Link href="#" color="inherit" sx={{ display: 'block', mb: 1, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Ayuda</Link>
@@ -125,8 +125,8 @@ export default function Layout({ children }) {
             <Link href="#" color="inherit" sx={{ display: 'block', mb: 1, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>Carreras</Link>
             <Link href="mailto:soporte@beworking.es" color="inherit" sx={{ display: 'block', mb: 1, textDecoration: 'none', '&:hover': { textDecoration: 'underline' } }}>info@be-working.com</Link>
           </Box>
-        </Container>
-        <Divider sx={{ my: 1, borderColor: 'rgba(255,255,255,0.3)', opacity: 1, borderBottomWidth: '0.5px' }} />
+        </Container> */}
+        {/* <Divider sx={{ my: 1, borderColor: 'rgba(255,255,255,0.3)', opacity: 1, borderBottomWidth: '0.5px' }} /> */}
         <Container sx={{ pt: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: { xs: 'column', md: 'row' }, gap: 2 }}>
           {/* Left: BeWorking and legal links */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>

@@ -5,12 +5,13 @@ import {
   Container,
   Divider,
 } from '@mui/material';
-import { 
+import {
   MainSection, 
   StartContent, 
   SectionBox, 
   PricingBanner, 
 } from '../src/styles/indexStyles';
+// import Image from 'next/image';
 import { PricingCard } from '../src/components/home/PricingCard';
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import PilarSection from '../src/components/home/PilarSection';
@@ -42,15 +43,24 @@ export default function Home() {
   return (
     <Layout>
       <Seo
-        title="BeWorking - Coworking & Office Spaces"
-        description="Flexible coworking and office solutions in Spain. Join BeWorking today!"
+        title="Oficina Virtual BeWorking - Tu dirección profesional desde 15€/mes"
+        description="Obtén tu oficina virtual con domicilio legal y fiscal, recepción de paquetería, acceso a espacios físicos, SuperApp y eventos de networking. ¡Impulsa tu negocio con BeWorking! Desde 15€/mes."
         image="/BeWorking.JPG"
         url="https://beworking.com"
       />
       <StructuredData data={orgData} />
       {/* Main */}
-      <MainSection sx={{ pt: { xs: 4, sm: 4 }, mt: -6 }}>
-        <StartContent maxWidth="md" sx={{ pt: { xs:8, sm:10, md:10 }, ml: 4 }}>
+      <Box sx={{ position: 'relative', pt: { xs: 4, sm: 4 }, mt: -6, minHeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {/* Optimized background image */}
+          <Image
+            src="/3_retina.webp"
+            alt="Main background"
+            fill
+            style={{ objectFit: 'cover', zIndex: 0 }}
+            priority
+          />
+        <Box sx={{ position: 'relative', zIndex: 2, width: '100%' }}>
+          <StartContent maxWidth="md" sx={{ pt: { xs:8, sm:10, md:10 }, ml: 4 }}>
           <Typography variant="h1" component="h1" gutterBottom sx={{ textAlign: 'left' }}>
             Tu Oficina Virtual por <span style={{ fontWeight: 'bold' }}>15 €/mes</span>
           </Typography>
@@ -67,8 +77,9 @@ export default function Home() {
           <Box sx={{ maxWidth: 600, width: '100%', ml: 0, mr: 'auto' }}>
             <ModernContactSection transparent />
           </Box>
-        </StartContent>
-      </MainSection>
+          </StartContent>
+        </Box>
+      </Box>
 
       {/* Pilares section */}
       <SectionBox>
@@ -84,8 +95,8 @@ export default function Home() {
         </Typography>
 
         <PilarSection
-          title="Domicilio Legal y Fiscal"
-          image="/pilar1.2final.png"
+              title="Domicilio Legal y Fiscal"
+              image="/pilar1.2final_optimized.webp"
           description="Te ofrecemos un domicilio legal y fiscal en múltiples ubicaciones."
           benefits={[
             'Cumple con los requisitos legales y fiscales.',
@@ -96,8 +107,8 @@ export default function Home() {
         <Box sx={{ bgcolor: '#f9f9f9' }}>
           <Box sx={{ height: { xs: 120, md: 200 } }} />
           <PilarSection
-            title="Recepción de Paquetería y Correspondencia"
-            image="/pilar2final.png"
+                title="Recepción de Paquetería y Correspondencia"
+                image="/pilar2final_optimized.webp"
             description="Tu correspondencia siempre atendida: recibimos tu correo y paquetes."
             benefits={[
               <>En cuanto recibimos tu correspondencia, te avisamos por email o <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>WhatsApp</Box>.</>,
@@ -111,8 +122,8 @@ export default function Home() {
         <Box sx={{ height: { xs: 120, md: 200 } }} />
 
         <PilarSection
-          title="Acceso a la red física BeSpaces"
-          image="/pilar3final.png"
+              title="Acceso a la red física BeSpaces"
+              image="/pilar3final_optimized.webp"
           description="Utiliza nuestra red de espacios de trabajo sin coste adicional."
           benefits={[
             <>No solo te ofrecemos el servicio virtual, sino también la <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Oficina Física</Box> y <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Sala de Reuniones</Box> cuando las necesites.</>,
@@ -124,8 +135,8 @@ export default function Home() {
         <Box sx={{ bgcolor: '#f9f9f9' }}>
           <Box sx={{ height: { xs: 120, md: 200 } }} />
           <PilarSection
-            title="Uso gratuito de la SuperApp"
-            image="/pilar4.1final.png"
+                title="Uso gratuito de la SuperApp"
+                image="/pilar4.1final_optimized.webp"
             description="Todas las herramientas de gestión empresarial incluidas en tu plan de Oficina Virtual."
             benefits={[
               <>Contactos, <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>MailBox</Box> donde archivamos toda tu correspondencia, Contabilidad, Chat para conectar con otros Beworkers.</>,
@@ -140,8 +151,8 @@ export default function Home() {
         <Box sx={{ height: { xs: 120, md: 200 } }} />
 
         <PilarSection
-          title="Eventos Mensuales y Networking"
-          image="/pilar5final.png"
+              title="Eventos Mensuales y Networking"
+              image="/pilar5final_optimized.webp"
           description="Participa en reuniones, talleres y cafés empresariales."
           benefits={[
             <>Cada mes, los gestores de BeSpaces organizarán <Box component="span" sx={{ fontWeight: 'bold', color: 'black' }}>Eventos Presenciales</Box>.</>,
@@ -162,7 +173,16 @@ export default function Home() {
       </SectionBox>
 
       {/* Pricing Banner */}
-      <PricingBanner>
+      <Box sx={{ position: 'relative', pt: 12, pb: 12, textAlign: 'center', minHeight: 400, display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: '#fff' }}>
+        {/* Optimized background image */}
+        <Image
+          src="/BeWorking.JPG"
+          alt="Pricing background"
+          fill
+          style={{ objectFit: 'cover', zIndex: 0 }}
+        />
+        {/* Orange overlay */}
+        <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', bgcolor: 'rgba(255, 152, 0, 0.5)', zIndex: 1 }} />
         <Container maxWidth="md" sx={{ position: 'relative', zIndex: 2 }}>
           <Typography 
             variant="h2" 
@@ -181,7 +201,7 @@ export default function Home() {
           {/* Pricing Card injected here */}
           <PricingCard />
         </Container>
-      </PricingBanner>
+      </Box>
 
       {/* Gallery Section */}
       <GallerySection />
@@ -190,7 +210,7 @@ export default function Home() {
       {/* Floating WhatsApp Button */}
       <Box
         component="a"
-        href="https://wa.me/34666666666" // Replace with your WhatsApp number
+        href="https://wa.me/34640369759" 
         target="_blank"
         rel="noopener noreferrer"
         sx={{
