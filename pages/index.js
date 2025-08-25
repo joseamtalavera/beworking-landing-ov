@@ -30,6 +30,7 @@ import orgData from '../src/components/structuredData/orgData';
 
 export default function Home() {
   const [openContact, setOpenContact] = useState(false);
+  const [openBanner, setOpenBanner] = useState(false);
 
   const handleOpenContact = () => {
     setOpenContact(true);
@@ -39,6 +40,19 @@ export default function Home() {
   };
 
   const handleCloseContact = () => setOpenContact(false);
+
+    const orangePin = {
+    path: 'M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z',
+    fillColor: '#FFA500',
+    fillOpacity: 1,
+    strokeColor: '#FFFFFF',
+    strokeWeight: 2,
+    scale: 1.5,
+    anchor: { x: 12, y: 24 },
+  };
+
+  const handlePinClick = () => setOpenBanner(true);
+  const handleBannerClose = () => setOpenBanner(false);
 
   return (
     <Layout>
@@ -205,6 +219,72 @@ export default function Home() {
 
       {/* Gallery Section */}
       <GallerySection />
+
+      {/* Location Map Placeholder */}
+      <Box sx={{ py: 4, textAlign: 'center' }}>
+        <Container>
+          <Typography variant="h2" gutterBottom sx={{ mb: 3, fontWeight: 400, mt: 1 }}>
+            BeSpaces Location
+          </Typography>
+
+          <Typography variant="h5" align="center" sx={{ mb: 6, maxWidth: 900, mx: 'auto', color: 'text.secondary' }}>
+            Haz clic en el mapa para ver dónde puedes disfrutar de todos nuestros servicios y formar parte de la comunidad BeWorking.
+          </Typography>
+          <Box
+            sx={{
+              height: 500,
+              backgroundColor: '#ddd',
+              borderRadius: 2,
+              overflow: 'hidden',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              p: 0,
+            }}
+          >
+            <LoadScript googleMapsApiKey="AIzaSyD2wGD__sSA7AEkqMm-9pmKDITc6jivP6o">
+              <GoogleMap
+                mapContainerStyle={{ width: '100%', height: '500px' }}
+                center={{ lat: 40.4637, lng: -3.7492 }} // Spain central
+                zoom={5}
+                options={{
+                  disableDefaultUI: true,
+                  zoomControl: true,
+                }}
+              >
+                <Marker 
+                  position={{ lat: 36.7213, lng: -4.4214 }} 
+                  icon={orangePin} 
+                  onClick={handlePinClick}
+                /> {/* Malaga */}
+          {/* Banner for Málaga pin */}
+          <Dialog open={openBanner} onClose={handleBannerClose} maxWidth="sm" PaperProps={{ sx: { borderRadius: 3, p: 2, bgcolor: '#fff', boxShadow: 3 } }}>
+            <DialogContent sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+              <Image src="/DSC_2298.jpg" alt="BeSpace Málaga" width={320} height={180} style={{ borderRadius: 12, objectFit: 'cover' }} />
+              <Typography variant="h6" sx={{ fontWeight: 600, color: 'primary.main', mb: 1 }}>BeSpace Málaga</Typography>
+              <Typography variant="body1" sx={{ color: 'text.secondary', textAlign: 'center' }}>
+                Calle Alejandro Dumas 17 - Oficinas, 29005 Málaga, España
+              </Typography>
+              <GreenButton label="Cerrar" onClick={handleBannerClose} />
+            </DialogContent>
+          </Dialog>
+                {/*<Marker position={{ lat: 37.3886, lng: -5.9823 }} icon={orangePin} /> {/* Sevilla */}
+                {/* <Marker position={{ lat: 39.4699, lng: -0.3763 }} icon={orangePin} /> {/* Valencia */}
+                {/*<Marker position={{ lat: 41.6488, lng: -0.8891 }} icon={orangePin} /> {/* Zaragoza */}
+                {/*<Marker position={{ lat: 43.2630, lng: -2.9350 }} icon={orangePin} /> {/* Bilbao */}
+                {/*<Marker position={{ lat: 42.2406, lng: -8.7207 }} icon={orangePin} /> {/* Vigo */}
+                {/*<Marker position={{ lat: 39.5696, lng: 2.6502 }} icon={orangePin} /> {/* Palma de Mallorca */}
+                {/*<Marker position={{ lat: 28.1235, lng: -15.4363 }} icon={orangePin} /> {/* Las Palmas de Gran Canaria */}
+                {/*<Marker position={{ lat: 41.3851, lng: 2.1734 }} icon={orangePin} /> {/* Barcelona */}
+                {/*<Marker position={{ lat: 40.4168, lng: -3.7038 }} icon={orangePin} /> {/* Madrid */}
+              </GoogleMap>
+            </LoadScript>
+          </Box>
+          <Box sx={{ mt: 4, textAlign: 'center' }}>
+          <GreenButton label="Select your BeSpace" />
+        </Box>
+        </Container>
+      </Box>
 
 
       {/* Floating WhatsApp Button */}

@@ -34,6 +34,11 @@ export default function ModernContactSection({ transparent = false }) {
       setNameErrorMessage('Introduce tu nombre.');
       isValid = false;
       if (!firstError) firstError = 'name';
+    } else if (values.name.length > 50) {
+      setNameError(true);
+      setNameErrorMessage('El nombre es demasiado largo.');
+      isValid = false;
+      if (!firstError) firstError = 'name';
     } else {
       setNameError(false);
       setNameErrorMessage('');
@@ -42,6 +47,11 @@ export default function ModernContactSection({ transparent = false }) {
     if (!values.email || !emailRegex.test(values.email.trim())) {
       setEmailError(true);
       setEmailErrorMessage('Introduce un email válido.');
+      isValid = false;
+      if (!firstError) firstError = 'email';
+    } else if (values.email.length > 100) {
+      setEmailError(true);
+      setEmailErrorMessage('El email es demasiado largo.');
       isValid = false;
       if (!firstError) firstError = 'email';
     } else {
@@ -53,6 +63,11 @@ export default function ModernContactSection({ transparent = false }) {
     if (!digits || digits.length < 7) {
       setPhoneError(true);
       setPhoneErrorMessage('Introduce un teléfono válido.');
+      isValid = false;
+      if (!firstError) firstError = 'phone';
+    } else if (digits.length > 15) {
+      setPhoneError(true);
+      setPhoneErrorMessage('El teléfono es demasiado largo.');
       isValid = false;
       if (!firstError) firstError = 'phone';
     } else {
