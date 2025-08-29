@@ -14,6 +14,7 @@ export default function GreenLoadingButton({ label = 'Solicitar información', l
       loadingPosition="center"
       startIcon={<SendIcon />}
       fullWidth
+      disabled={loading || props.disabled}
       sx={{
         mt: 3,
         bgcolor: '#009624',

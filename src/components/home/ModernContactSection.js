@@ -180,6 +180,7 @@ export default function ModernContactSection({ transparent = false }) {
           aria-hidden="true"
           tabIndex={-1}
           autoComplete="organization"
+          data-testid="honeypot"
         />
 
         <TextField
@@ -260,6 +261,7 @@ export default function ModernContactSection({ transparent = false }) {
         <GreenLoadingButton
           label="SOLICITA TU OFICINA VIRTUAL"
           loading={loading}
+          disabled={loading}
           sx={{ fontSize: '1rem' }}
         />
       </Box>
