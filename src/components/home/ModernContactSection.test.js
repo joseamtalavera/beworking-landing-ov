@@ -183,5 +183,80 @@ describe('ModernContactSection', () => {
 
         fetchSpy.mockRestore();
     });
+
+    // snackbar close event
+    it('closes snackbar when close event is triggered', async () => {
+        render(<ModernContactSection />);
+        fireEvent.change(screen.getByPlaceholderText(/Nombre completo/i), { target: { value: 'Test User' } });
+        fireEvent.change(screen.getByPlaceholderText(/Teléfono/i), { target: { value: '123456789' } });
+        fireEvent.change(screen.getByPlaceholderText(/Email/i), { target: { value: 'test@example.com' } });
+
+        fireEvent.click(screen.getByRole('button', { name: /SOLICITA TU OFICINA VIRTUAL/i }));
+
+        // wait for the snackbar to appear
+        await waitFor(() => {
+            expect(screen.getByText(/¡Gracias! Te contactaremos pronto/i)).toBeInTheDocument();
+        });
+
+        // simulate the closing the snackbar (click the close button)
+        fireEvent.click(screen.getByRole('button', { name: /close/i }));
+
+        // wait for the snackbar to disappear
+        await waitFor(() => {
+            expect(screen.queryByText(/¡Gracias! Te contactaremos pronto/i)).not.toBeInTheDocument();
+        });
+    });
+
+    // sanitization
+    it('trims whitespace from inputs', async () => {
+        render(<ModernContactSection />);
+        fireEvent.change(screen.getByPlaceholderText(/Nombre completo/i), { target: { value: '  Jose  ' } });
+        fireEvent.change(screen.getByPlaceholderText(/Teléfono/i), { target: { value: '  123456789  ' } });
+        fireEvent.change(screen.getByPlaceholderText(/Email/i), { target: { value: '  test@mail.com  ' } });
+
+        const button = screen.getByRole('button', { name: /SOLICITA TU OFICINA VIRTUAL/i });
+        fireEvent.click(button);
+
+        // You can spy on fetch and check the payload if needed
+        await waitFor(() => {
+            expect(global.fetch).toHaveBeenCalledWith(
+                expect.any(String),
+                expect.objectContaining({
+                    body: JSON.stringify({
+                        name: 'Jose',
+                        phone: '123456789',
+                        email: 'test@mail.com'
+                    })
+                })
+            )
+        })
+    })
+        it('submits trimmed and sanitized inputs (email lowercased, phone digits only)', async () => {
+            global.fetch = jest.fn(() =>
+                Promise.resolve({
+                    ok: true,
+                    json: () => Promise.resolve({}),
+                })
+            );
+            render(<ModernContactSection />);
+            fireEvent.change(screen.getByPlaceholderText(/Nombre completo/i), { target: { value: '  Jose  ' } });
+            fireEvent.change(screen.getByPlaceholderText(/Teléfono/i), { target: { value: ' +34 123 456 ' } });
+            fireEvent.change(screen.getByPlaceholderText(/Email/i), { target: { value: ' TEST@MAIL.COM ' } });
+
+            fireEvent.click(screen.getByRole('button', { name: /SOLICITA TU OFICINA VIRTUAL/i }));
+
+            await waitFor(() => {
+                expect(global.fetch).toHaveBeenCalledWith(
+                    expect.any(String),
+                    expect.objectContaining({
+                        body: JSON.stringify({
+                            name: 'Jose',
+                            phone: '34123456',
+                            email: 'test@mail.com'
+                        })
+                    })
+                );
+            });
+        });
 });
 

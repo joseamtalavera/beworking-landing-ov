@@ -90,8 +90,8 @@ export default function ModernContactSection({ transparent = false }) {
 
     const trimmed = {
       name: (form.name || '').trim(),
-      phone: (form.phone || '').trim(),
-      email: (form.email || '').trim(),
+      phone: (form.phone || '').replace(/[^\d]/g, ''),
+      email: (form.email || '').trim().toLowerCase(),
     };
       // Log form data before sending
       console.log('Submitting lead:', trimmed);
@@ -287,7 +287,7 @@ export default function ModernContactSection({ transparent = false }) {
 
       <Snackbar
         open={snackbar.open}
-        autoHideDuration={5000}
+        autoHideDuration={2000}
         onClose={(_, reason) => {
           if (reason === 'clickaway') return;
           setSnackbar((s) => ({ ...s, open: false }));
