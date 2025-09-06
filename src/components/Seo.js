@@ -9,7 +9,7 @@ import Head from 'next/head';
 export default function Seo({
   title = 'Oficina Virtual BeWorking - Tu dirección profesional desde 15€/mes',
   description = 'Obtén tu oficina virtual con domicilio legal y fiscal, recepción de paquetería, acceso a espacios físicos, SuperApp y eventos de networking. ¡Impulsa tu negocio con BeWorking! Desde 15€/mes.',
-  image = '/BeWorking.JPG',
+  image = '/BeWorking_optimized.jpg',
   url = 'https://be-working.com',
   canonical = 'https://be-working.com', // Default canonical to homepage if not provided
 }) {

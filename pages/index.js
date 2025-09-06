@@ -59,7 +59,7 @@ export default function Home() {
       <Seo
         title="Oficina Virtual BeWorking - Tu dirección profesional desde 15€/mes"
         description="Obtén tu oficina virtual con domicilio legal y fiscal, recepción de paquetería, acceso a espacios físicos, SuperApp y eventos de networking. ¡Impulsa tu negocio con BeWorking! Desde 15€/mes."
-        image="/BeWorking.JPG"
+        image="/BeWorking_optimized.jpg"
         url="https://beworking.com"
       />
       <StructuredData data={orgData} />
@@ -190,7 +190,7 @@ export default function Home() {
       <Box sx={{ position: 'relative', pt: 12, pb: 12, textAlign: 'center', minHeight: 400, display: 'flex', alignItems: 'center', justifyContent: 'center', bgcolor: '#fff' }}>
         {/* Optimized background image */}
         <Image
-          src="/BeWorking.JPG"
+          src="/BeWorking_optimized.jpg"
           alt="Pricing background"
           fill
           style={{ objectFit: 'cover', zIndex: 0 }}
